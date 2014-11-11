@@ -1,0 +1,16 @@
+{
+  "name": "marxist",
+  "version": "0.0.0",
+  "description": "document module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "GSA",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^6.3.2",
+    "cheerio": "file:./node_modules/cheerio",
+    "webworkify": "^1.0.0"
+  }
+}
