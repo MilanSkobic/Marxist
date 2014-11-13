@@ -1,14 +1,14 @@
 var webworkify = require('webworkify');
 
 
-module.exports.client = function Marx_Resource(typ, name, store) {
+module.exports = function Marx_Resource(typ, name, storage) {
 	////////////////////////////////////////////////////////////////////
 	// :: string, object, Marx_db instance, url
 	//
 	var self = this,
 		index = {},
 		worker, store;
-	name = name || typ+'-worker';
+	name = name || typ + '-worker';
 	switch (typ) {
 		case "XMLHttpRequest":
 			worker = webworkify(require('./lib/ajax.js'));
@@ -42,6 +42,8 @@ module.exports.client = function Marx_Resource(typ, name, store) {
 				break;
 			case 'object':
 				Store = window[name] = {};
+				break
+				break
 			default:
 				throw new Error("Marxist: unknown Storage type");
 		}
@@ -67,8 +69,9 @@ module.exports.client = function Marx_Resource(typ, name, store) {
 		return self;
 	}
 	worker.addEventListener('message', function _report(msg) {
-		var data = JSON.parse(msg.data),
-			key = data['set'].key;
+		var data = msg.data['set'],
+			key = data.key;
+		console.log(data)
 		if (index[key]) {
 			index[key].forEach(function _call(fn) {
 				fn(data.value)
@@ -82,3 +85,7 @@ module.exports.client = function Marx_Resource(typ, name, store) {
 	}
 	return self;
 }
+
+
+
+
