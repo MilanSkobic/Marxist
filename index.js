@@ -83,6 +83,9 @@ module.exports = function Marx_Resource(typ, name, storage) {
 		var item = index[key] = index[key] || [];
 		item.push(fn)
 	}
+	if (window && !window[name]){
+		window[name] = self;
+	}
 	return self;
 }
 
