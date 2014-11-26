@@ -6,3 +6,4 @@ json resources which are turned into page elements (requested, processed, update
 inside of html5 Worker instances, and exposed to the containing document as 
 entries in an instance of html5 Storage or an in-memory javascript object. 
 
+Loosely based on https://csperkins.org/teaching/rtes/lecture02.pdf

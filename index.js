@@ -43,7 +43,6 @@ module.exports = function Marx_Resource(typ, name, storage) {
 			case 'object':
 				Store = window[name] = {};
 				break
-				break
 			default:
 				throw new Error("Marxist: unknown Storage type");
 		}
@@ -52,9 +51,7 @@ module.exports = function Marx_Resource(typ, name, storage) {
 			\nNo " + Store + " support detected in browser,\ndefaulting to javascript object");
 		Store = {};
 	}
-	console.log(worker)
 	self.request = function request(requestobj) {
-		console.log(requestobj)
 		if (requestobj.processes) {
 			var cap_re = RegExp('^(function [^{].*)');
 			requestobj.processes = requestobj.processes.map(
